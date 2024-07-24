@@ -1,0 +1,26 @@
+#!/bin/sh
+# python3
+apk add --no-cache \
+    build-base \
+    python3 \
+    py3-pip \
+    python3-dev \
+    oniguruma-dev
+
+# ansible-nuilder
+mkdir /ansible-ee
+python3 -m venv /ansible-ee
+. /ansible-ee/bin/activate
+pip3 install ansible-navigator
+echo ansible-navigator --version
+ansible-navigator --version
+echo ansible-builder --version
+ansible-builder --version
+
+# execution environment
+cd /ansible-container
+cp /ansible-setup/execution-environment.yml .
+ansible-builder build \
+		--container-runtime docker \
+		--tag ansible_ee
+docker image ls
