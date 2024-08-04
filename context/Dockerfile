@@ -8,4 +8,5 @@ RUN apk add --update --no-cache \
 RUN mkdir /ansible-ee \
     && python3 -m venv /ansible-ee \
     && . /ansible-ee/bin/activate \
+    && echo "VIRTUAL_ENV=$VIRTUAL_ENV" \
     && python3 -m pip install --user ansible-core
