@@ -1,4 +1,4 @@
-ARG ALPONE_VERSION=3.20
+ARG ALPINE_VERSION=3.20
 FROM alpine:$ALPINE_VERSION
 LABEL maintainer "Andrea Zuccherelli <andrea@zuccherelli.net>"
 ENV PYTHONUNBUFFERED=1
