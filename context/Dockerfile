@@ -1,4 +1,5 @@
-FROM maven:3.9.6-eclipse-temurin-11-alpine
+ARG ALPONE_VERSION=3.20
+FROM alpine:$ALPINE_VERSION
 LABEL maintainer "Andrea Zuccherelli <andrea@zuccherelli.net>"
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache \

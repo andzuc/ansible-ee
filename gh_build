@@ -1,2 +1,14 @@
 #!/bin/bash
-gh workflow run build-image
+
+if [ $# -ne 1 ]; then
+    echo "$0: usage is:"
+    echo "$0 [alpine_version_tag]"
+    echo "alpine_version_tag: Alpine base Docker image tag (https://hub.docker.com/_/alpine/tags)"
+    echo "example: gh_build 3.20"
+    exit 1
+fi
+
+ALPINE_VERSION="$1"
+
+gh workflow run build-image \
+   -F alpine_version="${ALPINE_VERSION}"
