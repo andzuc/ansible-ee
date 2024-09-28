@@ -10,7 +10,7 @@ on:
 
 env:
   IMAGENAME: ansible-ee
-  ALPINE_VERSION: ${{ github.event.inputs.version || vars.VERSION }}
+  ALPINE_VERSION: ${{ github.event.inputs.alpine_version || vars.ALPINE_VERSION }}
 
 jobs:
   build-image:
