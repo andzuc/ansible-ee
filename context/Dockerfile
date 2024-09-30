@@ -40,6 +40,7 @@ RUN mkdir ansible-ee \
     && echo "VIRTUAL_ENV=$VIRTUAL_ENV" \
     && pip install ansible-core \
     && pip list
+COPY .profile .profile
 
-ENTRYPOINT [ "/bin/bash", "-c", "/usr/sbin/sshd -D & source ansible-ee/bin/activate && eval $@", "shellinit" ]
-CMD [ "/bin/bash" ]
+#ENTRYPOINT [ "/bin/bash", "-c", "eval $@ && /usr/sbin/sshd -D & ", "shellinit" ]
+CMD [ "/usr/sbin/sshd", "-D" ]
