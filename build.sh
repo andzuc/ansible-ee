@@ -1,3 +1,3 @@
 #!/bin/bash
 
-tar -C context -cf - .|docker build -t andzuc/ansible-ee -
+tar -C context -cf - .|docker build --progress plain -t andzuc/ansible-ee -
