@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ANSCMD="$(basename $0)"
+ARGS="$@"
+
+docker run \
+       --name ansible-playbook \
+       --rm \
+       -v .:/home/vagrant/work:ro \
+       ghcr.io/andzuc/ansible-ee:3.20.20241001.11 \
+       /bin/bash -c "source ansible-ee/bin/activate; cd work; $ANSCMD $ARGS"
